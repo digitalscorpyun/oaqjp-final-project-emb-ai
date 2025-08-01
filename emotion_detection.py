@@ -8,3 +8,5 @@ def emotion_detector(text_to_analyze):
 
     response = requests.post(url, headers=headers, json=input_json)
     return response.json()['document']['emotion']
+
+    
