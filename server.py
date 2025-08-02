@@ -13,7 +13,7 @@ def detect_emotion():
     result = emotion_detector(text_to_analyze)
 
     if result['dominant_emotion'] is None:
-        return "Invalid text! Please try again!"
+        return render_template("index.html", output="Invalid text! Please try again!")
 
     formatted_response = (
         f"For the given statement, the system response is 'anger': {result['anger']}, "
@@ -21,7 +21,7 @@ def detect_emotion():
         f"'joy': {result['joy']} and 'sadness': {result['sadness']}. "
         f"The dominant emotion is {result['dominant_emotion']}."
     )
-    return formatted_response
+    return render_template("index.html", output=formatted_response)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
